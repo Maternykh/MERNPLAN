@@ -27,11 +27,13 @@ const DelDays: React.FC = () => {
   const { id } = useParams();
   const Delete = () => {
     dispatch(setLoading(true));
-    axios.delete(`http://localhost:8888/days/${id}`).then(() => {
-      dispatch(setLoading(false));
-      navigate("/");
-      dispatch(setClearAdd());
-    });
+    axios
+      .delete(`https://fullstack-plans-app-mern.onrender.com/days/${id}`)
+      .then(() => {
+        dispatch(setLoading(false));
+        navigate("/");
+        dispatch(setClearAdd());
+      });
   };
   return (
     <>

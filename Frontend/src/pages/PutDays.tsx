@@ -36,11 +36,13 @@ const PutDays: React.FC = () => {
       pattern,
     };
     dispatch(setLoading(true));
-    axios.put(`http://localhost:8888/days/${id}`, add).then(() => {
-      dispatch(setLoading(false));
-      dispatch(setClearAdd());
-      navigate("/");
-    });
+    axios
+      .put(`https://fullstack-plans-app-mern.onrender.com/days/${id}`, add)
+      .then(() => {
+        dispatch(setLoading(false));
+        dispatch(setClearAdd());
+        navigate("/");
+      });
   };
 
   return (

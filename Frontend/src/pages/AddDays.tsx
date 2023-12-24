@@ -64,11 +64,13 @@ const AddDays: React.FC = () => {
       pattern,
     };
     dispatch(setLoading(true));
-    axios.post(`http://localhost:8888/days`, add).then(() => {
-      dispatch(setLoading(false));
-      dispatch(setClearAdd());
-      navigate("/");
-    });
+    axios
+      .post(`https://fullstack-plans-app-mern.onrender.com/days`, add)
+      .then(() => {
+        dispatch(setLoading(false));
+        dispatch(setClearAdd());
+        navigate("/");
+      });
   };
   const {
     copytascName,

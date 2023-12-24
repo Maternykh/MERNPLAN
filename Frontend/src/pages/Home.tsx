@@ -33,7 +33,7 @@ const Home: React.FC = () => {
   useEffect(() => {
     dispatch(setLoading(true));
     axios
-      .get("http://localhost:8888/days")
+      .get("https://fullstack-plans-app-mern.onrender.com/days")
       .then((res) => {
         dispatch(setLoading(false));
         dispatch(setDays(res.data));
