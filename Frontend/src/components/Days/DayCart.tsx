@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { categType, dayMap, useAppDispatch } from "../../Type";
+import { dayMap, useAppDispatch } from "../../Type";
 import { Link } from "react-router-dom";
 import {
   setCategory,
