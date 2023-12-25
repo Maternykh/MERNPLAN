@@ -1,7 +1,22 @@
-import React from "react";
+import { useAppSelector } from "../Type";
+import { RootState } from "../Redux/store";
+import Minidays from "../components/Days/Minidays";
 
 const Calendar: React.FC = () => {
-  return <div>Calendar</div>;
+  const days = useAppSelector((state: RootState) => state.days.days);
+  const searchValue = useAppSelector(
+    (state: RootState) => state.filter.searchValue
+  );
+  const dayMap = days
+    .filter((obj) => {
+      if (obj.dayName.toLowerCase().includes(searchValue.toLowerCase())) {
+        return true;
+      }
+      return false;
+    })
+    .map((day) => <Minidays {...day} key={day._id} />);
+  return (
+    <div className=" flex flex-wrap bg-white p-3 rounded-xl">{dayMap}</div>
+  );
 };
-
 export default Calendar;
