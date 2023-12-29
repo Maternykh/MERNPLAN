@@ -27,7 +27,7 @@ const NavBar: React.FC = () => {
       path: "/addDay",
     },
     {
-      value: "Add Note",
+      value: "Add Purp",
       path: "/addNote",
     },
   ];

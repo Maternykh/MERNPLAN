@@ -2,6 +2,7 @@ import React from "react";
 import { useAppDispatch, useAppSelector } from "../Type";
 import { RootState } from "../Redux/store";
 import {
+  setClearPurps,
   setDescPurps,
   setIsCompletedPurps,
   setTitlePurps,
@@ -45,11 +46,12 @@ const PutPurps: React.FC = () => {
       .put(`https://fullstack-plans-app-mern.onrender.com/purp/${id}`, add)
       .then(() => {
         dispatch(setLoading(false));
+        dispatch(setClearPurps());
         navigate("/");
       });
   };
   return (
-    <div className="w-1/4">
+    <div className="xl:w-1/4 w-full">
       <div className=" p-2 bg-white rounded-xl mb-2">
         <div>
           <input

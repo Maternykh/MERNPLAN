@@ -40,7 +40,7 @@ const FullPurp: React.FC = () => {
     dispatch(setValuePurps(value));
   };
   return (
-    <div className="w-1/4">
+    <div className="xl:w-1/4 w-full">
       <div className=" bg-white rounded-xl p-2 mb-2">
         <div className=" font-bold text-xl">{title}</div>
         <div>{desc}</div>
