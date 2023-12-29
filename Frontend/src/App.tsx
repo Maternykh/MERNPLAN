@@ -8,6 +8,8 @@ import DelDays from "./pages/DelDays";
 import Calendar from "./pages/Calendar";
 import Message from "./pages/Message";
 import AddNote from "./pages/AddNote";
+import FullPurp from "./pages/FullPurp";
+import PutPurps from "./pages/PutPurps";
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
           <Route path="/calendar" element={<Calendar />}></Route>
           <Route path="/messages" element={<Message />}></Route>
           <Route path="/addNote" element={<AddNote />}></Route>
+          <Route path="/checkfullpurps/:id" element={<FullPurp />}></Route>
+          <Route path="/putPurps/:id" element={<PutPurps />}></Route>
         </Routes>
       </div>
     </div>

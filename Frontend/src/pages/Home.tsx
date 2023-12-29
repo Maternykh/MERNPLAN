@@ -8,9 +8,12 @@ import { setDays } from "../Redux/Slice/daySlice";
 import DayCart from "../components/Days/DayCart";
 import HeadDays from "../components/Days/HeadDays";
 import { BiLoaderAlt } from "react-icons/bi";
+import { setPurp } from "../Redux/Slice/purpSlice";
+import PurpCart from "../components/Purps/PurpCart";
 const Home: React.FC = () => {
   const Loading = useAppSelector((state: RootState) => state.params.Loading);
   const days = useAppSelector((state: RootState) => state.days.days);
+  const purps = useAppSelector((state: RootState) => state.purp.purps);
   const dispatch = useAppDispatch();
   const selectMonth = useAppSelector(
     (state: RootState) => state.filter.selectMonthAndYear
@@ -37,6 +40,19 @@ const Home: React.FC = () => {
       .then((res) => {
         dispatch(setLoading(false));
         dispatch(setDays(res.data));
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading(false);
+      });
+  }, []);
+  useEffect(() => {
+    dispatch(setLoading(true));
+    axios
+      .get("https://fullstack-plans-app-mern.onrender.com/purp")
+      .then((res) => {
+        dispatch(setLoading(false));
+        dispatch(setPurp(res.data));
       })
       .catch((error) => {
         console.log(error);
@@ -73,8 +89,13 @@ const Home: React.FC = () => {
           )}
         </div>
       </div>
-      <div className="className= bg-white p-2 rounded-xl w-full xl:w-2/5">
-        awd
+      <div className="  rounded-xl w-full xl:w-2/5">
+        <div className=" bg-white p-2 rounded-xl mb-2">Your purpose:</div>
+        <div className=" grid grid-cols-3 gap-2">
+          {purps.map((purp) => (
+            <PurpCart {...purp} key={purp._id} />
+          ))}
+        </div>
       </div>
     </div>
   );

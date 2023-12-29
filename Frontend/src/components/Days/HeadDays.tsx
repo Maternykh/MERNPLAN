@@ -19,7 +19,7 @@ const HeadDays: React.FC = () => {
     "November 2024",
     "December 2024",
   ];
-  let selectMonth = useAppSelector(
+  const selectMonth = useAppSelector(
     (state: RootState) => state.filter.selectMonthAndYear
   );
   const dispatch = useAppDispatch();
@@ -34,7 +34,7 @@ const HeadDays: React.FC = () => {
     }
   };
   return (
-    <div className=" flex justify-between flex-wrap mb-2">
+    <div className=" xl:flex justify-between block mb-2">
       <div className=" font-bold text-xl">Upcoming Schedule</div>
       <div className=" flex items-center">
         <div

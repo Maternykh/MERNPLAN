@@ -1,5 +1,6 @@
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "./Redux/store";
+import { ReactElement } from "react";
 export interface initialParams {
   pathname: string;
   Loading: boolean;
@@ -50,6 +51,20 @@ export interface copydayMap {
 export interface filterType {
   selectMonthAndYear: number;
   searchValue: string;
+}
+export interface purpMap {
+  _id: number;
+  title: string;
+  desc: string;
+  value: string;
+  isCompleted: boolean;
+}
+export interface initialPurp {
+  purps: purpMap[];
+}
+export interface iconMap {
+  icon: ReactElement;
+  path: string;
 }
 export const useAppDispatch: () => AppDispatch = useDispatch;
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;

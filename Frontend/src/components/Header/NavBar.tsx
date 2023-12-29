@@ -4,6 +4,7 @@ import { linksMap, useAppDispatch, useAppSelector } from "../../Type";
 import { RootState } from "../../Redux/store";
 import { setPathName } from "../../Redux/Slice/paramSlice";
 import { setClearAdd } from "../../Redux/Slice/addDaySlice";
+import { setClearPurps } from "../../Redux/Slice/addPurps";
 
 const NavBar: React.FC = () => {
   const location = useAppSelector((state: RootState) => state.params.pathname);
@@ -33,6 +34,7 @@ const NavBar: React.FC = () => {
   const onClickLink = (lin: linksMap) => {
     dispatch(setPathName(lin.path));
     dispatch(setClearAdd());
+    dispatch(setClearPurps());
   };
   return (
     <div className=" hidden  xl:mb-0 mb-2 w-full xl:w-1/2 xl:flex  xl:justify-between items-center bg-white xl:px-8 xl:py-3 xl:rounded-full rounded-xl">

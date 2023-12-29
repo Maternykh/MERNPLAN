@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dayRouter from "./routes/dayRoute.js";
 import cors from "cors";
 import { PORT, mongoDBUrl } from "./config.js";
+import purpRouter from "./routes/purpRoute.js";
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -17,6 +18,7 @@ app.get("/", (req, res) => {
   return res.status(234).send("Welcome MERN stack database!");
 });
 app.use("/days", dayRouter);
+app.use("/purp", purpRouter);
 mongoose
   .connect(mongoDBUrl)
   .then(() => {
