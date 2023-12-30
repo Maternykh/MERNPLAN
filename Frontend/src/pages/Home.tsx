@@ -90,8 +90,10 @@ const Home: React.FC = () => {
         </div>
       </div>
       <div className="  rounded-xl w-full xl:w-2/5">
-        <div className=" bg-white p-2 rounded-xl mb-2">Your purpose:</div>
-        <div className=" grid xl:grid-cols-3 xl:gap-2 grid-cols-2 gap-1">
+        <div className=" bg-white p-2 rounded-xl mb-2 text-xl font-bold">
+          Your purpose:
+        </div>
+        <div className=" grid xl:grid-cols-3 gap-2 grid-cols-2 ">
           {purps.map((purp) => (
             <PurpCart {...purp} key={purp._id} />
           ))}

@@ -26,13 +26,15 @@ const PurpCart: React.FC<purpMap> = ({
   };
   return (
     <Link onClick={() => onCLickPurp()} to={`/checkfullpurps/${_id}`}>
-      <div className=" bg-white rounded-2xl p-2 ">
-        <div className=" font-bold">{title}</div>
-        <div>{desc}</div>
+      <div className=" bg-white rounded-2xl p-2 h-full flex flex-col justify-between">
+        <div>
+          <div className=" font-bold">{title}</div>
+          <div>{desc}</div>
+        </div>
         <div
           className={`${
             isCompleted ? " bg-green-400" : " bg-red-500"
-          } flex justify-center rounded-full p-1`}
+          } text-white flex justify-center rounded-full p-1`}
         >
           {isCompleted ? "Complete" : "Incomplite"}
         </div>

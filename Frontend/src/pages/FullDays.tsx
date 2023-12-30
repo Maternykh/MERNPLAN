@@ -35,14 +35,14 @@ const FullDays: React.FC = () => {
           </div>
         </div>
         <div
-          className={` p-2 rounded-xl w-56 ${greenbg} ${orangebg} ${bluebg} ${redbg} ${indigobg} ${basebg}`}
+          className={` p-2 rounded-xl w-36 ${greenbg} ${orangebg} ${bluebg} ${redbg} ${indigobg} ${basebg}`}
         >
           {monthAndYears}
         </div>
         <div className=" m-2">category:</div>
         <div className=" flex flex-wrap">
           {category.map((cat, index) => (
-            <div key={index} className=" bg-gray-300 p-2 rounded-xl mr-2">
+            <div key={index} className=" bg-gray-200 p-2 rounded-xl mr-2 mb-2">
               {cat.categ}
             </div>
           ))}
