@@ -3,7 +3,6 @@ import { User } from "../models/userModal.js";
 import jwt from "jsonwebtoken";
 import { registerValidation } from "../validations/auth.js";
 import { validationResult } from "express-validator";
-import checkAuth from "../utils/checkAuth.js";
 import bcrypt from "bcrypt";
 const router = express.Router();
 router.post("/login", async (req, res) => {
@@ -42,23 +41,23 @@ router.post("/login", async (req, res) => {
   }
 });
 
-router.get("/me", checkAuth, async (req, res) => {
-  try {
-    const user = await User.findById(req.userId);
-    if (!user) {
-      return res.status(404).json({
-        message: "Пользователь не найден",
-      });
-    }
-    const { userPasswordHash, ...userData } = user._doc;
-    res.json(userData);
-  } catch (error) {
-    console.log(error);
-    res.status(404).json({
-      message: "Нет доступа",
-    });
-  }
-});
+// router.get("/me", checkAuth, async (req, res) => {
+//   try {
+//     const user = await User.findById(req.userId);
+//     if (!user) {
+//       return res.status(404).json({
+//         message: "Пользователь не найден",
+//       });
+//     }
+//     const { userPasswordHash, ...userData } = user._doc;
+//     res.json(userData);
+//   } catch (error) {
+//     console.log(error);
+//     res.status(404).json({
+//       message: "Нет доступа",
+//     });
+//   }
+// });
 
 router.post("/register", registerValidation, async (req, res) => {
   try {
