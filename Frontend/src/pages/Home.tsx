@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect } from "react";
 
-import { useAppDispatch, useAppSelector } from "../Type";
+import { dayMap, useAppDispatch, useAppSelector } from "../Type";
 import { RootState } from "../Redux/store";
 import { setLoading } from "../Redux/Slice/paramSlice";
 import { setDays } from "../Redux/Slice/daySlice";
@@ -32,14 +32,17 @@ const Home: React.FC = () => {
     "November 2024",
     "December 2024",
   ];
-
+  const owner = useAppSelector((state: RootState) => state.userAuth.userEmail);
   useEffect(() => {
     dispatch(setLoading(true));
     axios
       .get("https://fullstack-plans-app-mern.onrender.com/days")
       .then((res) => {
         dispatch(setLoading(false));
-        dispatch(setDays(res.data));
+        const filterData = res.data.filter(
+          (obj: dayMap) => obj.owner === owner
+        );
+        dispatch(setDays(filterData));
       })
       .catch((error) => {
         console.log(error);
