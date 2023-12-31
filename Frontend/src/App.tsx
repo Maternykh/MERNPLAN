@@ -7,12 +7,13 @@ import AddDays from "./pages/AddDays";
 import PutDays from "./pages/PutDays";
 import DelDays from "./pages/DelDays";
 import Calendar from "./pages/Calendar";
-import Message from "./pages/Message";
+
 import AddNote from "./pages/AddNote";
 import FullPurp from "./pages/FullPurp";
 import PutPurps from "./pages/PutPurps";
 import { Routes, Route } from "react-router-dom";
 import Start from "./pages/Start";
+import Patterns from "./pages/Patterns";
 function App() {
   const isAuth = useAppSelector((state: RootState) => state.userAuth.isAuth);
   return (
@@ -29,7 +30,7 @@ function App() {
             <Route path="/deleteDay/:id" element={<DelDays />}></Route>
             <Route path="/putDay/:id" element={<PutDays />}></Route>
             <Route path="/calendar" element={<Calendar />}></Route>
-            <Route path="/messages" element={<Message />}></Route>
+            <Route path="/patterns" element={<Patterns />}></Route>
             <Route path="/addNote" element={<AddNote />}></Route>
             <Route path="/checkfullpurps/:id" element={<FullPurp />}></Route>
             <Route path="/putPurps/:id" element={<PutPurps />}></Route>

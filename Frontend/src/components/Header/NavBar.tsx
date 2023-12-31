@@ -19,8 +19,8 @@ const NavBar: React.FC = () => {
       path: "/calendar",
     },
     {
-      value: "Messages",
-      path: "/messages",
+      value: "Patterns",
+      path: "/patterns",
     },
     {
       value: "Add Day",

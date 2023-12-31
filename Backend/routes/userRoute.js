@@ -38,25 +38,6 @@ router.post("/login", async (req, res) => {
     });
   }
 });
-
-// router.get("/me", checkAuth, async (req, res) => {
-//   try {
-//     const user = await User.findById(req.userId);
-//     if (!user) {
-//       return res.status(404).json({
-//         message: "Пользователь не найден",
-//       });
-//     }
-//     const { userPasswordHash, ...userData } = user._doc;
-//     res.json(userData);
-//   } catch (error) {
-//     console.log(error);
-//     res.status(404).json({
-//       message: "Нет доступа",
-//     });
-//   }
-// });
-
 router.post("/register", registerValidation, async (req, res) => {
   try {
     const errors = validationResult(req);

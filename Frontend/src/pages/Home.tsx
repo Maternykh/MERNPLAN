@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect } from "react";
 
-import { dayMap, useAppDispatch, useAppSelector } from "../Type";
+import { dayMap, purpMap, useAppDispatch, useAppSelector } from "../Type";
 import { RootState } from "../Redux/store";
 import { setLoading } from "../Redux/Slice/paramSlice";
 import { setDays } from "../Redux/Slice/daySlice";
@@ -55,7 +55,10 @@ const Home: React.FC = () => {
       .get("https://fullstack-plans-app-mern.onrender.com/purp")
       .then((res) => {
         dispatch(setLoading(false));
-        dispatch(setPurp(res.data));
+        const filterPurp = res.data.filter(
+          (obj: purpMap) => obj.owner === owner
+        );
+        dispatch(setPurp(filterPurp));
       })
       .catch((error) => {
         console.log(error);
