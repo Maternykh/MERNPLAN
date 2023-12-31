@@ -16,6 +16,7 @@ const AddNote: React.FC = () => {
   const { title, value, isCompleted, desc } = useAppSelector(
     (state: RootState) => state.addpurp
   );
+  const owner = useAppSelector((state: RootState) => state.userAuth.userEmail);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -39,6 +40,7 @@ const AddNote: React.FC = () => {
       value,
       isCompleted,
       desc,
+      owner,
     };
     dispatch(setLoading(true));
     axios
