@@ -7,6 +7,7 @@ const initialState: purpMap = {
   desc: "",
   value: "",
   isCompleted: false,
+  owner: "",
 };
 export const daySlice = createSlice({
   name: "addpurp",
