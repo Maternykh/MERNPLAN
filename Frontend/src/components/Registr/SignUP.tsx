@@ -20,9 +20,11 @@ const SignUP: React.FC = () => {
       userPasswordHash,
       userAvatar,
     };
-    axios.post(`http://localhost:8888/auth/register`, add).then(() => {
-      dispatch(setIsAuth(true));
-    });
+    axios
+      .post(`https://fullstack-plans-app-mern.onrender.com/auth/register`, add)
+      .then(() => {
+        dispatch(setIsAuth(true));
+      });
   };
   return (
     <div className=" bg-white rounded-xl p-4 xl:mb-0 mb-2">

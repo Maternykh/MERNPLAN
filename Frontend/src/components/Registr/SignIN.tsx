@@ -18,9 +18,11 @@ const SignIN: React.FC = () => {
       userEmail,
       userPasswordHash,
     };
-    axios.post(`http://localhost:8888/auth/login`, add).then(() => {
-      dispatch(setIsAuth(true));
-    });
+    axios
+      .post(`https://fullstack-plans-app-mern.onrender.com/auth/login`, add)
+      .then(() => {
+        dispatch(setIsAuth(true));
+      });
   };
   return (
     <div className=" bg-white rounded-xl p-4 flex flex-col justify-between">
