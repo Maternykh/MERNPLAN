@@ -38,6 +38,10 @@ const daySchema = mongoose.Schema(
     pattern: {
       type: String,
     },
+    owner: {
+      type: String,
+      require: true,
+    },
   },
   { timestamps: true }
 );

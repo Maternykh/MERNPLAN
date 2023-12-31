@@ -8,6 +8,7 @@ import copyDaySlice from "./Slice/copyDaySlice";
 import filterSlice from "./Slice/filterSlice";
 import purpSlice from "./Slice/purpSlice";
 import addPurps from "./Slice/addPurps";
+import registration from "./Slice/registration";
 
 export const store = configureStore({
   reducer: {
@@ -20,6 +21,7 @@ export const store = configureStore({
     filter: filterSlice,
     purp: purpSlice,
     addpurp: addPurps,
+    userAuth: registration,
   },
 });
 export type RootState = ReturnType<typeof store.getState>;

@@ -31,6 +31,7 @@ const AddDays: React.FC = () => {
     note,
     pattern,
   } = useAppSelector((state: RootState) => state.addday);
+  const owner = useAppSelector((state: RootState) => state.userAuth.userEmail);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   // const OnCLickSubmit = () => {
@@ -62,6 +63,7 @@ const AddDays: React.FC = () => {
       color,
       note,
       pattern,
+      owner,
     };
     dispatch(setLoading(true));
     axios

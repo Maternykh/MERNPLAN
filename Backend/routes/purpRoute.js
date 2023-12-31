@@ -4,7 +4,12 @@ import { Purp } from "../models/purposeModal.js";
 const router = express.Router();
 router.post("/", async (req, res) => {
   try {
-    if (!req.body.title || !req.body.value || !req.body.desc) {
+    if (
+      !req.body.title ||
+      !req.body.value ||
+      !req.body.desc ||
+      !req.body.owner
+    ) {
       return res.status(400).send({
         message: "Send all required fields:title,desc, value, isCompleted",
       });
@@ -14,6 +19,7 @@ router.post("/", async (req, res) => {
       desc: req.body.desc,
       value: req.body.value,
       isCompleted: req.body.isCompleted,
+      owner: req.body.owner,
     };
     const purp = await Purp.create(newPurp);
     return res.status(201).send(purp);
@@ -34,7 +40,12 @@ router.get("/", async (req, res) => {
 
 router.put("/:id", async (req, res) => {
   try {
-    if (!req.body.title || !req.body.value || !req.body.desc) {
+    if (
+      !req.body.title ||
+      !req.body.value ||
+      !req.body.desc ||
+      !req.body.owner
+    ) {
       return res.status(400).send({
         message: "Send all required fields: title,desc, value, isCompleted",
       });

@@ -18,6 +18,10 @@ const purposeSchema = mongoose.Schema(
       type: Boolean,
       require: true,
     },
+    owner: {
+      type: String,
+      require: true,
+    },
   },
   { timestamps: true }
 );

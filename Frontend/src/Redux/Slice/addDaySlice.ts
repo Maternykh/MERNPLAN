@@ -11,6 +11,7 @@ const initialState: dayMap = {
   color: "base",
   note: "",
   pattern: "",
+  owner: "",
 };
 export const daySlice = createSlice({
   name: "addday",
@@ -57,6 +58,7 @@ export const daySlice = createSlice({
     setPattern: (state, actions: PayloadAction<string>) => {
       state.pattern = actions.payload;
     },
+
     setClearAdd: (state) => {
       (state._id = 0),
         (state.tascName = ""),

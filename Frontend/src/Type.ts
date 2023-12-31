@@ -22,6 +22,7 @@ export interface dayMap {
   color: string;
   note: string;
   pattern: string;
+  owner: string;
 }
 export interface categType {
   id: number;
@@ -58,6 +59,7 @@ export interface purpMap {
   desc: string;
   value: string;
   isCompleted: boolean;
+  owner: string;
 }
 export interface initialPurp {
   purps: purpMap[];
@@ -65,6 +67,12 @@ export interface initialPurp {
 export interface iconMap {
   icon: ReactElement;
   path: string;
+}
+export interface userType {
+  isAuth: boolean;
+  userEmail: string;
+  userPasswordHash: string;
+  userAvatar: string;
 }
 export const useAppDispatch: () => AppDispatch = useDispatch;
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;

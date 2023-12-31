@@ -9,7 +9,8 @@ router.post("/", async (req, res) => {
       !req.body.dayName ||
       !req.body.monthAndYears ||
       !req.body.category ||
-      !req.body.color
+      !req.body.color ||
+      !req.body.owner
     ) {
       return res.status(400).send({
         message:
@@ -24,6 +25,7 @@ router.post("/", async (req, res) => {
       category: req.body.category,
       color: req.body.color,
       note: req.body.note,
+      owner: req.body.owner,
     };
     const day = await Day.create(newDay);
     return res.status(201).send(day);
@@ -49,7 +51,8 @@ router.put("/:id", async (req, res) => {
       !req.body.dayName ||
       !req.body.monthAndYears ||
       !req.body.category ||
-      !req.body.color
+      !req.body.color ||
+      !req.body.owner
     ) {
       return res.status(400).send({
         message:
