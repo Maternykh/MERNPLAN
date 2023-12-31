@@ -5,7 +5,7 @@ import cors from "cors";
 import { PORT, mongoDBUrl } from "./config.js";
 import purpRouter from "./routes/purpRoute.js";
 import userRouter from "./routes/userRoute.js";
-
+import patternRouter from "./routes/patternRoute.js";
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -22,7 +22,7 @@ app.get("/", (req, res) => {
 app.use("/days", dayRouter);
 app.use("/purp", purpRouter);
 app.use("/auth", userRouter);
-
+app.use("/pattern", patternRouter);
 mongoose
   .connect(mongoDBUrl)
   .then(() => {

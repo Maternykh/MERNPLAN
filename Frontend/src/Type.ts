@@ -6,6 +6,7 @@ export interface initialParams {
   Loading: boolean;
 }
 export interface linksMap {
+  icon: ReactElement;
   value: string;
   path: string;
 }

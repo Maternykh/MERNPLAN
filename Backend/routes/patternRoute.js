@@ -1,0 +1,87 @@
+import express from "express";
+import { Pattern } from "../models/patternModal.js";
+
+const router = express.Router();
+router.post("/", async (req, res) => {
+  try {
+    if (
+      !req.body.tascName ||
+      !req.body.dayName ||
+      !req.body.monthAndYears ||
+      !req.body.category ||
+      !req.body.color ||
+      !req.body.owner
+    ) {
+      return res.status(400).send({
+        message:
+          "Send all required fields:tascName, dayName, events, monthAndYears, category, color",
+      });
+    }
+    const newPattern = {
+      dayName: req.body.dayName,
+      tascName: req.body.tascName,
+      events: req.body.events,
+      monthAndYears: req.body.monthAndYears,
+      category: req.body.category,
+      color: req.body.color,
+      note: req.body.note,
+      owner: req.body.owner,
+    };
+    const pattern = await Pattern.create(newPattern);
+    return res.status(201).send(pattern);
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).send({ message: error.message });
+  }
+});
+router.get("/", async (req, res) => {
+  try {
+    const pattern = await Pattern.find({});
+    return res.status(200).json(pattern);
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).send({ message: error.message });
+  }
+});
+
+router.put("/:id", async (req, res) => {
+  try {
+    if (
+      !req.body.tascName ||
+      !req.body.dayName ||
+      !req.body.monthAndYears ||
+      !req.body.category ||
+      !req.body.color ||
+      !req.body.owner
+    ) {
+      return res.status(400).send({
+        message:
+          "Send all required fields: dayName, events, monthAndYears, category, color",
+      });
+    }
+    const { id } = req.params;
+    const result = await Pattern.findByIdAndUpdate(id, req.body);
+    if (!result) {
+      return res.status(404).json({ message: "Pattern not found" });
+    }
+    return res.status(200).send({ message: "Pattern update succesfully" });
+  } catch (error) {
+    console.log(error.message);
+    res.status(404).send({ message: error.message });
+  }
+});
+router.delete("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const result = await Pattern.findByIdAndDelete(id);
+    if (!result) {
+      return res.status(404).json({ message: "Pattern not found" });
+    }
+    return res.status(200).send({ message: "Pattern delete succesfully" });
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).send({ message: error.message });
+  }
+});
+
+export default router;

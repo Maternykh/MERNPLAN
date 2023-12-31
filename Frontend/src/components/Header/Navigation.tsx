@@ -1,6 +1,5 @@
 import React from "react";
 import { FaHome, FaCalendar } from "react-icons/fa";
-import { FaMessage } from "react-icons/fa6";
 import { HiViewGridAdd } from "react-icons/hi";
 import { MdOutlineAddToPhotos } from "react-icons/md";
 import { Link } from "react-router-dom";
@@ -9,6 +8,7 @@ import { RootState } from "../../Redux/store";
 import { setPathName } from "../../Redux/Slice/paramSlice";
 import { setClearAdd } from "../../Redux/Slice/addDaySlice";
 import { setClearPurps } from "../../Redux/Slice/addPurps";
+import { TbGridPattern } from "react-icons/tb";
 const Navigation: React.FC = () => {
   const pathname = useAppSelector((state: RootState) => state.params.pathname);
   const dispatch = useAppDispatch();
@@ -22,8 +22,8 @@ const Navigation: React.FC = () => {
       path: "/calendar",
     },
     {
-      icon: <FaMessage />,
-      path: "/messages",
+      icon: <TbGridPattern />,
+      path: "/patterns",
     },
     {
       icon: <HiViewGridAdd />,

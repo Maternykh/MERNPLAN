@@ -10,14 +10,14 @@ const Search: React.FC = () => {
   );
   const dispatch = useAppDispatch();
   return (
-    <div className=" relative">
+    <div className=" relative w-full">
       <CiSearch className=" text-gray-400 text-3xl absolute top-2 xl:top-3 left-2" />
       <input
         value={searchValue}
         onChange={(e) => dispatch(setSearchValue(e.target.value))}
         placeholder="Search here..."
         type="text"
-        className=" h-full w-52 xl:w-72 pl-10 bg-gray-200 border-none rounded-xl xl:rounded-full p-3 outline-none"
+        className=" h-full w-full pl-10 bg-gray-200 border-none rounded-xl xl:rounded-full p-3 outline-none"
       />
     </div>
   );

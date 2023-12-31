@@ -5,28 +5,39 @@ import { RootState } from "../../Redux/store";
 import { setPathName } from "../../Redux/Slice/paramSlice";
 import { setClearAdd } from "../../Redux/Slice/addDaySlice";
 import { setClearPurps } from "../../Redux/Slice/addPurps";
-
+import { TbGridPattern } from "react-icons/tb";
+import { FaHome } from "react-icons/fa";
+import { LuCalendarDays } from "react-icons/lu";
+import { HiViewGridAdd } from "react-icons/hi";
+import { MdOutlineAddToPhotos } from "react-icons/md";
 const NavBar: React.FC = () => {
   const location = useAppSelector((state: RootState) => state.params.pathname);
   const dispatch = useAppDispatch();
   const links: linksMap[] = [
     {
+      icon: <FaHome className=" flex justify-center items-center " />,
       value: "Home",
       path: "/",
     },
     {
+      icon: <LuCalendarDays className=" flex justify-center items-center " />,
       value: "Calendar",
       path: "/calendar",
     },
     {
+      icon: <TbGridPattern className=" flex justify-center items-center " />,
       value: "Patterns",
       path: "/patterns",
     },
     {
+      icon: <HiViewGridAdd className=" flex justify-center items-center " />,
       value: "Add Day",
       path: "/addDay",
     },
     {
+      icon: (
+        <MdOutlineAddToPhotos className=" flex justify-center items-center " />
+      ),
       value: "Add Purp",
       path: "/addNote",
     },
@@ -43,9 +54,12 @@ const NavBar: React.FC = () => {
           <div
             className={`${
               location === lin.path ? " text-orange-500" : "text-slate-800"
-            } flex justify-center xl:justify-normal my-2 text-lg mx-5`}
+            } flex justify-center xl:justify-normal my-2 text-lg items-center`}
           >
-            {lin.value}
+            <div className=" flex justify-center items-center text-xl mr-1">
+              {lin.icon}
+            </div>
+            <div className=" flex justify-center items-center">{lin.value}</div>
           </div>
         </Link>
       ))}

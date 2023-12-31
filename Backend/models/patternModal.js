@@ -45,4 +45,4 @@ const patternSchema = mongoose.Schema(
   },
   { timestamps: true }
 );
-export const Day = mongoose.model("Pattern", patternSchema);
+export const Pattern = mongoose.model("Pattern", patternSchema);
