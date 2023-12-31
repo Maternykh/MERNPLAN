@@ -21,6 +21,7 @@ const PutDays: React.FC = () => {
     note,
     pattern,
   } = useAppSelector((state: RootState) => state.addday);
+  const owner = useAppSelector((state: RootState) => state.userAuth.userEmail);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { id } = useParams();
@@ -34,6 +35,7 @@ const PutDays: React.FC = () => {
       color,
       note,
       pattern,
+      owner,
     };
     dispatch(setLoading(true));
     axios

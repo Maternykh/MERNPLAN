@@ -16,6 +16,7 @@ const PutPurps: React.FC = () => {
   const { title, value, isCompleted, desc } = useAppSelector(
     (state: RootState) => state.addpurp
   );
+  const owner = useAppSelector((state: RootState) => state.userAuth.userEmail);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { id } = useParams();
@@ -40,6 +41,7 @@ const PutPurps: React.FC = () => {
       desc,
       value,
       isCompleted,
+      owner,
     };
     dispatch(setLoading(true));
     axios
