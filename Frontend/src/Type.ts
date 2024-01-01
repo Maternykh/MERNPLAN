@@ -13,6 +13,9 @@ export interface linksMap {
 export interface initialDay {
   days: dayMap[];
 }
+export interface initialPattern {
+  patterns: dayMap[];
+}
 export interface dayMap {
   _id: number;
   tascName: string;

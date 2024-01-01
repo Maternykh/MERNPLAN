@@ -46,7 +46,7 @@ const Minidays: React.FC<dayMap> = ({
     <Link
       onClick={() => setFullDays()}
       to={`/checkfullday/${_id}`}
-      className={`${green} ${orange} ${blue} ${red} ${indigo} ${base} w-40 p-2 mr-2 my-2 rounded-2xl`}
+      className={`${green} ${orange} ${blue} ${red} ${indigo} ${base} p-2   rounded-2xl`}
     >
       <div className=" bg-white p-1 rounded-full flex justify-center mb-1">
         {dayName}

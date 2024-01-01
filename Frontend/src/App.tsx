@@ -14,6 +14,8 @@ import PutPurps from "./pages/PutPurps";
 import { Routes, Route } from "react-router-dom";
 import Start from "./pages/Start";
 import Patterns from "./pages/Patterns";
+import DelPatt from "./pages/DelPatt";
+import PutPattern from "./pages/PutPattern";
 function App() {
   const isAuth = useAppSelector((state: RootState) => state.userAuth.isAuth);
   return (
@@ -28,12 +30,14 @@ function App() {
             <Route path="/checkfullday/:id" element={<FullDays />}></Route>
             <Route path="/addDay" element={<AddDays />}></Route>
             <Route path="/deleteDay/:id" element={<DelDays />}></Route>
+            <Route path="/deletePattern/:id" element={<DelPatt />}></Route>
             <Route path="/putDay/:id" element={<PutDays />}></Route>
             <Route path="/calendar" element={<Calendar />}></Route>
             <Route path="/patterns" element={<Patterns />}></Route>
             <Route path="/addNote" element={<AddNote />}></Route>
             <Route path="/checkfullpurps/:id" element={<FullPurp />}></Route>
             <Route path="/putPurps/:id" element={<PutPurps />}></Route>
+            <Route path="/putPattern/:id" element={<PutPattern />}></Route>
           </Routes>
         </div>
       )}

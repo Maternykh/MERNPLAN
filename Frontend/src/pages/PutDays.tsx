@@ -64,7 +64,9 @@ const PutDays: React.FC = () => {
             ></textarea>
           </div>
         </div>
-        <ResetEvents />
+        <div className="w-full xl:w-1/2">
+          <ResetEvents />
+        </div>
       </div>
       <div
         onClick={() => OnCLickSubmit()}

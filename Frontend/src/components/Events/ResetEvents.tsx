@@ -38,7 +38,7 @@ const ResetEvents: React.FC = () => {
   const indigobor = color === "indigo" && "  border-indigo-400";
   const basebor = color === "base" && "  border-gray-200";
   return (
-    <div className=" bg-white p-2 rounded-xl w-full xl:w-1/2 flex flex-col items-center justify-between">
+    <div className=" bg-white p-2 rounded-xl h-full flex flex-col items-center justify-between">
       <div className=" w-full flex flex-col items-center">
         <div className=" font-bold mb-2">Add events</div>
         <EventCart />

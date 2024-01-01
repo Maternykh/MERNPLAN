@@ -16,7 +16,9 @@ const Calendar: React.FC = () => {
     })
     .map((day) => <Minidays {...day} key={day._id} />);
   return (
-    <div className=" flex flex-wrap bg-white p-3 rounded-xl">{dayMap}</div>
+    <div className=" grid grid-cols-2 xl:grid-cols-8 gap-2 bg-white p-3 rounded-xl">
+      {dayMap}
+    </div>
   );
 };
 export default Calendar;

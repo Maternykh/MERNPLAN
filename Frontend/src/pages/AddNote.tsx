@@ -19,21 +19,6 @@ const AddNote: React.FC = () => {
   const owner = useAppSelector((state: RootState) => state.userAuth.userEmail);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-
-  //   const OnCLickSubmit = () => {
-  //     const add = {
-  //       title,
-  //       desc,
-  //       value,
-  //       isCompleted,
-  //     };
-  //     dispatch(setLoading(true));
-  //     axios.put(`http://localhost:8888/purp/${id}`, add).then(() => {
-  //       dispatch(setLoading(false));
-  //       dispatch(setClearPurps());
-  //       navigate("/");
-  //     });
-  //   };
   const OnCLickSubmit = () => {
     const add = {
       title,

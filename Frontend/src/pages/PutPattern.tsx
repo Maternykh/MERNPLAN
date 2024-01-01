@@ -1,26 +1,16 @@
 import React from "react";
 import { useAppDispatch, useAppSelector } from "../Type";
 import { RootState } from "../Redux/store";
-import {
-  setCategory,
-  setClearAdd,
-  setColor,
-  setDayName,
-  setEvents,
-  setMonthAndYears,
-  setNote,
-  setPattern,
-  setTascName,
-} from "../Redux/Slice/addDaySlice";
+import { setClearAdd, setNote } from "../Redux/Slice/addDaySlice";
 import AddHead from "../components/Add/AddHead";
 import AddMonth from "../components/Add/AddMonth";
 import AddCateg from "../components/Add/AddCateg";
 import { setLoading } from "../Redux/Slice/paramSlice";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import ResetEvents from "../components/Events/ResetEvents";
 
-const AddDays: React.FC = () => {
+const PutPattern: React.FC = () => {
   const {
     tascName,
     dayName,
@@ -34,6 +24,7 @@ const AddDays: React.FC = () => {
   const owner = useAppSelector((state: RootState) => state.userAuth.userEmail);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const { id } = useParams();
   const OnCLickSubmit = () => {
     const add = {
       tascName,
@@ -48,37 +39,18 @@ const AddDays: React.FC = () => {
     };
     dispatch(setLoading(true));
     axios
-      .post(`https://fullstack-plans-app-mern.onrender.com/days`, add)
+      .put(`https://fullstack-plans-app-mern.onrender.com/pattern/${id}`, add)
       .then(() => {
         dispatch(setLoading(false));
         dispatch(setClearAdd());
-        navigate("/");
+        navigate("/patterns");
       });
   };
-  const {
-    copytascName,
-    copydayName,
-    copyevents,
-    copymonthAndYears,
-    copycategory,
-    copycolor,
-    copynote,
-    copypattern,
-  } = useAppSelector((state: RootState) => state.copy);
-  const PastDay = () => {
-    dispatch(setDayName(copydayName));
-    dispatch(setColor(copycolor));
-    dispatch(setCategory(copycategory));
-    dispatch(setMonthAndYears(copymonthAndYears));
-    dispatch(setEvents(copyevents));
-    dispatch(setTascName(copytascName));
-    dispatch(setNote(copynote));
-    dispatch(setPattern(copypattern));
-  };
+
   return (
     <>
       <div className=" flex xl:flex-nowrap flex-wrap">
-        <div className=" xl:mb-0 mb-2 w-full xl:w-1/2 bg-white rounded-xl p-2 xl:mr-2 ">
+        <div className=" w-full xl:w-1/2 bg-white rounded-xl p-2 xl:mr-2 mb-2 xl:mb-0">
           <AddHead />
           <AddMonth />
           <AddCateg />
@@ -96,28 +68,14 @@ const AddDays: React.FC = () => {
           <ResetEvents />
         </div>
       </div>
-      <div className=" mt-2 flex ">
-        <div
-          onClick={() => PastDay()}
-          className=" hover:cursor-pointer bg-white rounded-xl mr-2 flex justify-center items-center w-36"
-        >
-          Past
-        </div>
-        <div
-          onClick={() => dispatch(setClearAdd())}
-          className=" hover:cursor-pointer bg-white rounded-xl mr-2 flex justify-center items-center w-36"
-        >
-          Remove
-        </div>
-        <div
-          onClick={() => OnCLickSubmit()}
-          className=" hover:cursor-pointer  w-full flex justify-center items-center bg-white rounded-xl p-2"
-        >
-          Add Day
-        </div>
+      <div
+        onClick={() => OnCLickSubmit()}
+        className=" hover:cursor-pointer mt-2 w-full flex justify-center items-center bg-white rounded-xl p-2"
+      >
+        Put Day
       </div>
     </>
   );
 };
 
-export default AddDays;
+export default PutPattern;
