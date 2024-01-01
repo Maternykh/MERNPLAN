@@ -10,7 +10,6 @@ const userSchema = mongoose.Schema(
       type: String,
       require: true,
     },
-    userAvatar: String,
   },
   { timestamps: true }
 );

@@ -48,7 +48,6 @@ router.post("/register", registerValidation, async (req, res) => {
     const doc = new User({
       userEmail: req.body.userEmail,
       userPasswordHash: req.body.userPasswordHash,
-      userAvatar: req.body.userAvatar,
     });
     const user = await doc.save();
     const token = jwt.sign(

@@ -4,5 +4,4 @@ export const registerValidation = [
   body("userPasswordHash", "Пароль должен быть не меньше 5 символов").isLength({
     min: 5,
   }),
-  body("userAvatar", "Неверный фармат аватарки").optional().isURL(),
 ];
